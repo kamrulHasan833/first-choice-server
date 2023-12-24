@@ -4,7 +4,12 @@ const connectDB = require("./db/connect");
 require("dotenv").config();
 
 // internal modules
-const { authRouter, userRoute } = require("./routes/index");
+const {
+  authRouter,
+  userRoute,
+  productRouter,
+  cartRouter,
+} = require("./routes/index");
 // server running port
 const port = process.env.PORT || 5000;
 const defaultPath = "/first-choice/v1";
@@ -23,6 +28,8 @@ app.get("/", (req, res) => {
 // important routes
 app.use(defaultPath, authRouter);
 app.use(defaultPath, userRoute);
+app.use(defaultPath, productRouter);
+app.use(defaultPath, cartRouter);
 
 const main = async () => {
   await connectDB();

@@ -1,3 +1,5 @@
 const authRouter = require("./authentication");
 const userRoute = require("./users");
-module.exports = { authRouter, userRoute };
+const productRouter = require("./products");
+const cartRouter = require("./carts");
+module.exports = { authRouter, userRoute, productRouter, cartRouter };
